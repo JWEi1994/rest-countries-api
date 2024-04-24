@@ -1,13 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './components/Header'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Countries from './components/Countries'
+import CountryDetails from './components/CountryDetails'
 
 function App() {
 
   return (
     <>
-
+      <Header />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Countries />} />
+          <Route path="/:name" element={<CountryDetails />} />
+        </Routes>
+      </Router>
     </>
   )
 }
